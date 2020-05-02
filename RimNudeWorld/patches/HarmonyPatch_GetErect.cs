@@ -8,6 +8,7 @@ using HarmonyLib;
 using AlienRace;
 using rjw;
 using System.Reflection;
+using UnityEngine;
 
 namespace RimNudeWorld
 {
@@ -35,20 +36,17 @@ namespace RimNudeWorld
 
             if(pawn.RaceHasSexNeed()) {
 
-                if(originalPath.Contains("penis") && xxx.need_sex(pawn) > xxx.SexNeed.Horny && !(pawn.jobs.curDriver is JobDriver_Sex)) {
+                Log.Message("Attempting to replace " + originalPath + " with " + originalPath + "_flaccid");
 
-                    Log.Message("Attempting to replace " + originalPath + " with " + originalPath + "_flaccid");
+                if (originalPath.Contains("penis") && xxx.need_sex(pawn) > xxx.SexNeed.Horny && !(pawn.jobs.curDriver is JobDriver_Sex) && ContentFinder<Texture2D>.Get(originalPath + "_flaccid", false) != null) {
 
                     Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(originalPath + "_flaccid", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
-                    if(newGraphic != null) {
-                        __result = newGraphic;
-                        Log.Message("Success");
-                        return;
-                    }
-                    else {
-                        Log.Message("graphic not found");
-                    }
-
+                    __result = newGraphic;
+                    Log.Message("Success");
+                    return;
+                }
+                else {
+                    Log.Message("graphic not found");
                 }
 
             }
