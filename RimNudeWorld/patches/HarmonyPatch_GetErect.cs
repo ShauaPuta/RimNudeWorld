@@ -34,7 +34,7 @@ namespace RimNudeWorld
 
             if(pawn.RaceHasSexNeed()) {
 
-                if(originalPath.Contains("penis") && (xxx.need_sex(pawn) <= xxx.SexNeed.Horny || (pawn.jobs.curDriver is JobDriver_Sex))) {
+                if(originalPath.Contains("penis") && xxx.need_sex(pawn) > xxx.SexNeed.Horny && !(pawn.jobs.curDriver is JobDriver_Sex)) {
 
                     Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(originalPath + "_flaccid", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
                     if(newGraphic != null) {
