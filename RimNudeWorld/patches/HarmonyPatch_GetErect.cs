@@ -7,17 +7,18 @@ using RimWorld;
 using HarmonyLib;
 using AlienRace;
 using rjw;
+using System.Reflection;
 
 namespace RimNudeWorld
 {
 
     [StaticConstructorOnStartup]
-    public class HarmonyPatchAll {
+    static class HarmonyPatchAll {
 
-        public HarmonyPatchAll() {
+        static HarmonyPatchAll() {
 
             Harmony har = new Harmony("RimNudeWorld");
-            har.PatchAll();
+            har.PatchAll(Assembly.GetExecutingAssembly());
 
         }
 
