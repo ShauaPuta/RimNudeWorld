@@ -32,19 +32,26 @@ namespace RimNudeWorld
         public static void Postfix(Pawn pawn, ref Graphic __result) {
 
             string originalPath = __result.path;
-            string modifiedPath = originalPath.Insert(9, "Flaccid/") + "_flaccid";
 
-            if (pawn.RaceHasSexNeed()) {
+            if(originalPath.Contains("penis") && originalPath.Length >= 9) {
 
-                if (originalPath.Contains("penis") && xxx.need_sex(pawn) > xxx.SexNeed.Horny && !(pawn.jobs.curDriver is JobDriver_Sex) && ContentFinder<Texture2D>.Get(modifiedPath, false) != null) {
+                string modifiedPath = originalPath.Insert(9, "Flaccid/") + "_flaccid";
 
-                    Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
-                    __result = newGraphic;
+                if (pawn.RaceHasSexNeed()) {
 
-                    return;
-                } 
+                    if (xxx.need_sex(pawn) > xxx.SexNeed.Horny && !(pawn.jobs.curDriver is JobDriver_Sex) && ContentFinder<Texture2D>.Get(modifiedPath, false) != null) {
+
+                        Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                        __result = newGraphic;
+
+                        return;
+                    }
+
+                }
+
 
             }
+            
 
         }
 
