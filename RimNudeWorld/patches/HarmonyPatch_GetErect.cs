@@ -43,13 +43,25 @@ namespace RimNudeWorld
 
                         Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
                         __result = newGraphic;
-
+                        if (RJWSettings.DevMode)
+                            Log.Message("Modifying path " + originalPath + " with " + modifiedPath);
                         return;
+                    }
+                    else {
+                        if (RJWSettings.DevMode)
+                            Log.Message("Pawn is either: horny, has jobdriver sex, or texture at " + modifiedPath + " does not exist");
                     }
 
                 }
+                else {
+                    if (RJWSettings.DevMode)
+                        Log.Message("Pawn race does not have sexneed");
+                }
 
 
+            } else {
+                if (RJWSettings.DevMode)
+                    Log.Message(originalPath + " does not contain string \"penis\" or is shorter than a length of 9");
             }
             
 
