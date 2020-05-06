@@ -33,12 +33,24 @@ namespace RimNudeWorld
 
             string originalPath = __result.path;
 
-            if(originalPath.Contains("penis") && originalPath.Length >= 9) {
+            if (pawn.Dead) {
+
+                if (pawn.Corpse != null && pawn.Corpse.CurRotDrawMode == RotDrawMode.Dessicated && originalPath.Contains("Genitals")) {
+                    __result = null;
+                }
+                return;
+
+            }
+
+            else if (originalPath.Contains("penis") && originalPath.Length >= 9) {
 
                 string modifiedPath = originalPath.Insert(9, "Flaccid/") + "_flaccid";
 
+
+
                 if (pawn.RaceHasSexNeed()) {
 
+                        
                     if (xxx.need_sex(pawn) > xxx.SexNeed.Horny && !(pawn.jobs.curDriver is JobDriver_Sex) && ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null) {
 
                         Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
