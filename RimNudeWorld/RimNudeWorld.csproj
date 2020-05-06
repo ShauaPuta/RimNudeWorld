@@ -67,7 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="patches\HarmonyPatch_GetErect.cs" />
+    <Compile Include="patches\rjw\HarmonyPatch_ResolveGraphicsOnStart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="settings\NudeSettings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
