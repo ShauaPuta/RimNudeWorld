@@ -46,12 +46,9 @@ namespace RimNudeWorld
 
                 string modifiedPath = originalPath.Insert(9, "Flaccid/") + "_flaccid";
 
-
-
                 if (pawn.RaceHasSexNeed()) {
 
-                        
-                    if (xxx.need_sex(pawn) > xxx.SexNeed.Horny && !(pawn.jobs.curDriver is JobDriver_Sex) && ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null) {
+                    if (xxx.need_sex(pawn) > xxx.SexNeed.Frustrated && !(pawn.jobs.curDriver is JobDriver_Sex) && ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null) {
 
                         Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
                         __result = newGraphic;
