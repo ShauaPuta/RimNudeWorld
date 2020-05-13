@@ -35,7 +35,7 @@ namespace RimNudeWorld
 
             if (pawn.Dead) {
 
-                if (pawn.Corpse != null && pawn.Corpse.CurRotDrawMode == RotDrawMode.Dessicated && originalPath.Contains("Genitals")) {
+                if (pawn.Corpse != null && pawn.Corpse.CurRotDrawMode == RotDrawMode.Dessicated && (originalPath.Contains("Genitals") || originalPath.Contains("Breasts"))) {
                     __result = null;
                 }
                 return;
