@@ -46,13 +46,33 @@ namespace RimNudeWorld
 
             }
 
+            if(NudeSettings.debugMode) {
+                Log.Message("checking if path needs replacing");
+            }
+
             else if (originalPath.Length >= 9 && originalPath.Contains("penis")) {
+                if (NudeSettings.debugMode) {
+                    Log.Message("flag 1");
+                }
 
                 string modifiedPath = originalPath.Insert(9, "Flaccid/") + "_flaccid";
 
+                if (NudeSettings.debugMode) {
+                    Log.Message("flag 2");
+                }
+
+
                 if (pawn.RaceHasSexNeed()) {
 
+                    if (NudeSettings.debugMode) {
+                        Log.Message("flag 3");
+                    }
+
                     if (xxx.need_sex(pawn) > xxx.SexNeed.Frustrated && !(pawn.jobs.curDriver is JobDriver_Sex) && ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null) {
+
+                        if (NudeSettings.debugMode) {
+                            Log.Message("flag 4");
+                        }
 
                         Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
                         __result = newGraphic;
