@@ -35,14 +35,18 @@ namespace RimNudeWorld
 
             if (pawn.Dead) {
 
-                if (pawn.Corpse != null && pawn.Corpse.CurRotDrawMode == RotDrawMode.Dessicated && (originalPath.Contains("Genitals") || originalPath.Contains("Breasts"))) {
+                if (NudeSettings.debugMode) {
+                    Log.Message("Checking genital contains for " + originalPath);
+                }
+
+                if (pawn.Corpse != null && pawn.Corpse.CurRotDrawMode == RotDrawMode.Dessicated && ((originalPath.Length > 8 && originalPath.Contains("Genitals")) || (originalPath.Length > 7 && originalPath.Contains("Breasts")))) {
                     __result = null;
                 }
                 return;
 
             }
 
-            else if (originalPath.Contains("penis") && originalPath.Length >= 9) {
+            else if (originalPath.Length >= 9 && originalPath.Contains("penis")) {
 
                 string modifiedPath = originalPath.Insert(9, "Flaccid/") + "_flaccid";
 
