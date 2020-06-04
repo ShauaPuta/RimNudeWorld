@@ -46,10 +46,6 @@ namespace RimNudeWorld
 
             }
 
-            if(NudeSettings.debugMode) {
-                Log.Message("checking if path needs replacing");
-            }
-
             else if (originalPath.Length >= 9 && originalPath.Contains("penis")) {
                 if (NudeSettings.debugMode) {
                     Log.Message("flag 1");
