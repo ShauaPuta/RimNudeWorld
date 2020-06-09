@@ -11,10 +11,11 @@ using UnityEngine;
 namespace RimNudeWorld {
     public class NudeSettings : ModSettings {
 
-        public static bool debugMode = false;
+        public static bool debugMode = false, pubicHair = true;
 
         public override void ExposeData() {
             Scribe_Values.Look(ref debugMode, "RimNudeWorldDebugMode", false);
+            Scribe_Values.Look(ref pubicHair, "PubicHair", false);
             base.ExposeData();
         }
 
@@ -33,6 +34,7 @@ namespace RimNudeWorld {
             listingStandard.Begin(inRect);
 
             listingStandard.CheckboxLabeled("Debug Mode", ref NudeSettings.debugMode);
+            listingStandard.CheckboxLabeled("Enable Pubic Hair", ref NudeSettings.pubicHair);
 
             listingStandard.End();
 

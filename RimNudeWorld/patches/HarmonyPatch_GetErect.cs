@@ -40,8 +40,14 @@ namespace RimNudeWorld
                 }
 
                 if (pawn.Corpse != null && pawn.Corpse.CurRotDrawMode == RotDrawMode.Dessicated && ((originalPath.Length > 8 && originalPath.Contains("Genitals")) || (originalPath.Length > 7 && originalPath.Contains("Breasts")))) {
-                    __result = GraphicDatabase.Get<Graphic_Multi>("[INVIS TEXTURE PATH HERE]", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                    __result = GraphicDatabase.Get<Graphic_Multi>("[INVIS TEXTUREPATH HERE]", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
                 }
+                return;
+
+            }
+            else if(NudeSettings.pubicHair && originalPath.Length >= 5 && originalPath.Contains("Pubes")) {
+
+                __result = GraphicDatabase.Get<Graphic_Multi>("[INVIS TEXTUREPATH HERE]", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
                 return;
 
             }
