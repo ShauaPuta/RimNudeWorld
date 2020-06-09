@@ -21,7 +21,6 @@ namespace RimNudeWorld {
 
     }
 
-
     public class RimNudeWorld : Mod {
 
         public RimNudeWorld(ModContentPack content) : base(content) {
