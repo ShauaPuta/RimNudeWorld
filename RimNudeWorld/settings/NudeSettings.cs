@@ -33,7 +33,7 @@ namespace RimNudeWorld {
             listingStandard.Begin(inRect);
 
             listingStandard.CheckboxLabeled("Debug Mode", ref NudeSettings.debugMode);
-            listingStandard.CheckboxLabeled("Enable Pubic Hair", ref NudeSettings.pubicHair);
+            listingStandard.CheckboxLabeled("Disable Pubic Hair (Might take a few seconds to update ingame)", ref NudeSettings.pubicHair);
 
             listingStandard.End();
 
