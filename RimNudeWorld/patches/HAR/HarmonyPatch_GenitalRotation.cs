@@ -50,7 +50,7 @@ namespace RimNudeWorld {
 
 		public static void RotatePregnantGenitals(Mesh mesh, Vector3 loc, Quaternion quat, Material mat, bool drawNow, Pawn pawn, AlienPartGenerator.BodyAddon bodyAddon, Quaternion quat2, Rot4 rot) {
 
-			if (bodyAddon.bodyPart == "Penis" && pawn.IsVisiblyPregnant()) {
+			if (bodyAddon.path.Length >= 5 && bodyAddon.path.Contains("Penis") && pawn.IsVisiblyPregnant()) {
 
 				if (rot == Rot4.East) {
 					quat = Quaternion.AngleAxis(-1f * bodyAddon.angle - 30, Vector3.up) * quat2;
