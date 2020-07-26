@@ -5,3 +5,6 @@ C:\Program Files (x86)\Steam\steamapps\common\Games\Steam\steamapps\common\RimWo
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\RimNudeWorld 2.0\Source\RimNudeWorld\RimNudeWorld\obj\Debug\RimNudeWorld.csproj.CoreCompileInputs.cache
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\RimNudeWorld 2.0\Source\RimNudeWorld\RimNudeWorld\obj\Debug\RimNudeWorld.dll
 C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\RimNudeWorld 2.0\Source\RimNudeWorld\RimNudeWorld\obj\Debug\RimNudeWorld.csprojAssemblyReference.cache
+C:\Users\Dominic\Source\1.1\Assemblies\RimNudeWorld.dll
+C:\Users\Dominic\Source\Repos\RimNudeWorld\RimNudeWorld\obj\Debug\RimNudeWorld.csprojAssemblyReference.cache
+C:\Users\Dominic\Source\Repos\RimNudeWorld\RimNudeWorld\obj\Debug\RimNudeWorld.dll

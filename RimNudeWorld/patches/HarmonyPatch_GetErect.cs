@@ -31,55 +31,66 @@ namespace RimNudeWorld
 
         public static void Postfix(Pawn pawn, ref Graphic __result) {
 
-            string originalPath = __result.path;
-
-            if (pawn.Dead) {
+            if(__result?.path == null) {
 
                 if (NudeSettings.debugMode) {
-                    Log.Message("Checking genital contains for " + originalPath);
+                    Log.Message("Original graphic that's trying to be replaced doesn't exist!");
                 }
+            }
+            else {
 
-                if (pawn.Corpse != null && pawn.Corpse.CurRotDrawMode == RotDrawMode.Dessicated && ((originalPath.Length > 8 && originalPath.Contains("Genitals")) || (originalPath.Length > 7 && originalPath.Contains("Breasts")))) {
-                    __result = GraphicDatabase.Get<Graphic_Multi>("Genitals/FeaturelessCrotch", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                string originalPath = __result.path;
+
+                if (pawn.Dead) {
+
+                    if (NudeSettings.debugMode) {
+                        Log.Message("Attempting to remove corpse genitals...");
+                    }
+
+                    if (pawn.Corpse != null && pawn.Corpse.CurRotDrawMode == RotDrawMode.Dessicated && ((originalPath.Length > 8 && originalPath.Contains("Genitals")) || (originalPath.Length > 7 && originalPath.Contains("Breasts")))) {
+                        __result = GraphicDatabase.Get<Graphic_Multi>("Genitals/FeaturelessCrotch", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                    }
+                    return;
+
                 }
-                return;
+                else if (NudeSettings.pubicHair && originalPath.Length >= 5 && originalPath.Contains("Pubes")) {
 
-            }
-            else if(NudeSettings.pubicHair && originalPath.Length >= 5 && originalPath.Contains("Pubes")) {
+                    __result = GraphicDatabase.Get<Graphic_Multi>("Genitals/Pubes/Shaved", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                    return;
 
-                __result = GraphicDatabase.Get<Graphic_Multi>("Genitals/Pubes/Shaved", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
-                return;
+                }
+                else if (originalPath.Length >= 9 && originalPath.Contains("penis")) {
 
-            }
-            else if (originalPath.Length >= 9 && originalPath.Contains("penis")) {
+                    string modifiedPath = originalPath.Insert(9, "Flaccid/") + "_flaccid";
 
-                string modifiedPath = originalPath.Insert(9, "Flaccid/") + "_flaccid";
+                    if (pawn.RaceHasSexNeed()) {
 
-                if (pawn.RaceHasSexNeed()) {
+                        if (xxx.need_sex(pawn) > xxx.SexNeed.Frustrated && !(pawn.jobs.curDriver is JobDriver_Sex) && ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null) {
 
-                    if (xxx.need_sex(pawn) > xxx.SexNeed.Frustrated && !(pawn.jobs.curDriver is JobDriver_Sex) && ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null) {
+                            Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                            __result = newGraphic;
+                            if (NudeSettings.debugMode)
+                                Log.Message("Modifying path " + originalPath + " with " + modifiedPath);
+                            return;
+                        }
+                        else {
+                            if (NudeSettings.debugMode)
+                                Log.Message("Pawn is either: horny, has jobdriver sex, or texture at " + modifiedPath + " does not exist");
+                        }
 
-                        Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
-                        __result = newGraphic;
-                        if (NudeSettings.debugMode)
-                            Log.Message("Modifying path " + originalPath + " with " + modifiedPath);
-                        return;
                     }
                     else {
                         if (NudeSettings.debugMode)
-                            Log.Message("Pawn is either: horny, has jobdriver sex, or texture at " + modifiedPath + " does not exist");
+                            Log.Message("Pawn race does not have sexneed");
                     }
+
 
                 }
                 else {
                     if (NudeSettings.debugMode)
-                        Log.Message("Pawn race does not have sexneed");
+                        Log.Message(originalPath + " does not contain string \"penis\" or is shorter than a length of 9");
                 }
 
-
-            } else {
-                if (NudeSettings.debugMode)
-                    Log.Message(originalPath + " does not contain string \"penis\" or is shorter than a length of 9");
             }
 
         }
