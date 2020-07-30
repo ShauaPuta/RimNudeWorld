@@ -29,6 +29,8 @@ namespace RimNudeWorld
     [HarmonyPatch(typeof(AlienPartGenerator.BodyAddon), "GetPath")]
     public class GenitalPatch {
 
+        public static readonly char[] NUMBERS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+
         public static void Postfix(Pawn pawn, ref Graphic __result) {
 
             if(__result?.path == null) {
@@ -62,20 +64,33 @@ namespace RimNudeWorld
                 else if (originalPath.Length >= 9 && originalPath.Contains("penis")) {
 
                     string modifiedPath = originalPath.Insert(9, "Flaccid/") + "_flaccid";
+                    string modifiedPathNoNumber = originalPath.TrimEnd(NUMBERS).Length >= 9 ? originalPath.TrimEnd(NUMBERS).Insert(9, "Flaccid/") + "_flaccid" : "";
 
                     if (pawn.RaceHasSexNeed()) {
 
-                        if (xxx.need_sex(pawn) > xxx.SexNeed.Frustrated && !(pawn.jobs.curDriver is JobDriver_Sex) && ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null) {
+                        if (xxx.need_sex(pawn) > xxx.SexNeed.Frustrated && !(pawn.jobs.curDriver is JobDriver_Sex)) {
 
-                            Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
-                            __result = newGraphic;
-                            if (NudeSettings.debugMode)
-                                Log.Message("Modifying path " + originalPath + " with " + modifiedPath);
-                            return;
+                            if(ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null) {
+
+                                __result = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                                if (NudeSettings.debugMode)
+                                    Log.Message("Modifying path " + originalPath + " with " + modifiedPath);
+                                return;
+                            }
+                            else if(modifiedPathNoNumber != "" && ContentFinder<Texture2D>.Get(modifiedPathNoNumber + "_north", false) != null) {
+
+                                __result = GraphicDatabase.Get<Graphic_Multi>(modifiedPathNoNumber, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                                if (NudeSettings.debugMode)
+                                    Log.Message("Modifying path " + originalPath + " with " + modifiedPathNoNumber + " (with end numbers trimmed)");
+                                return;
+
+                            }
+
+                            
                         }
                         else {
                             if (NudeSettings.debugMode)
-                                Log.Message("Pawn is either: horny, has jobdriver sex, or texture at " + modifiedPath + " does not exist");
+                                Log.Message("Pawn is either: horny or has jobdriver sex");
                         }
 
                     }
