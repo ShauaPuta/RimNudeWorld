@@ -88,7 +88,7 @@ namespace RimNudeWorld
                             else {
 
                                 if (NudeSettings.debugMode)
-                                    Log.Message("Could not find " + originalPath + " or " + modifiedPathNoNumber + " (with end numbers trimmed)");
+                                    Log.Message("Could not find " + modifiedPath + " or " + modifiedPathNoNumber + " (with end numbers trimmed)");
 
                             }
 
