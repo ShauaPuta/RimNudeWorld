@@ -71,7 +71,7 @@ namespace RimNudeWorld
                         if (xxx.need_sex(pawn) > xxx.SexNeed.Frustrated && !(pawn.jobs.curDriver is JobDriver_Sex)) {
 
                             if(ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null) {
-
+                                 
                                 __result = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
                                 if (NudeSettings.debugMode)
                                     Log.Message("Modifying path " + originalPath + " with " + modifiedPath);
@@ -87,10 +87,13 @@ namespace RimNudeWorld
                             }
                             else {
 
-                                if (NudeSettings.debugMode)
+                                if (NudeSettings.debugMode) {
                                     Log.Message("Could not find " + modifiedPath + " or " + modifiedPathNoNumber + " (with end numbers trimmed)");
+                                    ContentFinder<Texture2D>.Get(modifiedPathNoNumber + "_north", true);
+                                }
+                                    
 
-                            }
+                            }   
 
                             
                         }
