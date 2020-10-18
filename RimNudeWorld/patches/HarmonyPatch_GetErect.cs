@@ -33,7 +33,12 @@ namespace RimNudeWorld
 
         public static void Postfix(Pawn pawn, ref Graphic __result) {
 
-            if(__result?.path == null) {
+            if(pawn == null) {
+                if (NudeSettings.debugMode) {
+                    Log.Message("Pawn is null; patch stopped");
+                }
+            }
+            else if(__result?.path == null) {
 
                 if (NudeSettings.debugMode) {
                     Log.Message("Original graphic that's trying to be replaced doesn't exist!");
