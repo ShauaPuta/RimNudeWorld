@@ -64,9 +64,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CachedGraphics.cs" />
     <Compile Include="patches\BodyTypeAddon.cs" />
     <Compile Include="patches\HarmonyPatch_GetErect.cs" />
     <Compile Include="patches\HAR\HarmonyPatch_GenitalRotation.cs" />
+    <Compile Include="patches\rjw\HarmonyPatch_AddBodyGraphicForRJW.cs" />
     <Compile Include="patches\rjw\HarmonyPatch_ResolveGraphicsOnStart.cs" />
     <Compile Include="patches\rjw\HarmonyPatch_SwapBodyGraphicForRJW.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
