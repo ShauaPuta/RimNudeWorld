@@ -11,7 +11,18 @@ using RimWorld;
 
 namespace RimNudeWorld
 {
-    [HarmonyPatch(typeof(PawnRenderer), "RenderPawnInternal")]
+    [HarmonyPatch(typeof(PawnRenderer), "RenderPawnInternal",
+        new Type[] { 
+            typeof(Vector3),
+            typeof(float),
+            typeof(bool),
+            typeof(Rot4),
+            typeof(Rot4),
+            typeof(RotDrawMode),
+            typeof(bool),
+            typeof(bool),
+            typeof(bool)
+        })]
     class HarmonyPatch_AddBodyGraphicForRJW
     {
         public static void Postfix(PawnRenderer __instance, Pawn ___pawn, Vector3 rootLoc, float angle, bool renderBody, Rot4 bodyFacing, Rot4 headFacing, RotDrawMode bodyDrawType, bool portrait, bool headStump, bool invisible)
@@ -27,9 +38,7 @@ namespace RimNudeWorld
 
             if (ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null)
             {
-                if (p?.jobs?.curDriver != null &&
-                (p?.jobs?.curDriver is JobDriver_Sex ||
-                (p.RaceHasSexNeed() && xxx.need_sex(p) >= xxx.SexNeed.Frustrated)))
+                if (p?.jobs?.curDriver != null && p.jobs.curDriver is JobDriver_Sex)
                 {
                     GraphicData originalGraphicData = p.ageTracker.CurKindLifeStage.bodyGraphicData;
                     Graphic lewdGraphic = CachedGraphics.LewdGraphics.TryGetValue(modifiedPath);
@@ -37,7 +46,7 @@ namespace RimNudeWorld
                     if(lewdGraphic != null)
                     {
                         Mesh lewdMesh = lewdGraphic.MeshAt(bodyFacing);
-                        rootLoc.y = (float)(AltitudeLayer.LayingPawn - 1);
+                        rootLoc.y = (AltitudeLayer.LayingPawn - 1).AltitudeFor();
                         GenDraw.DrawMeshNowOrLater(lewdMesh, rootLoc, Quaternion.AngleAxis(angle, Vector3.up), lewdGraphic.MatAt(bodyFacing), portrait);
                     }
                 }

@@ -10,7 +10,7 @@ namespace RimNudeWorld
     public static class CachedGraphics
     {
 
-        public static Dictionary<string, Graphic> LewdGraphics;
+        public static Dictionary<string, Graphic> LewdGraphics = new Dictionary<string, Graphic>();
 
     }
 }
