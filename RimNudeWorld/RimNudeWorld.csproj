@@ -47,6 +47,7 @@
     </Reference>
     <Reference Include="RJW">
       <HintPath>..\..\..\..\rjw-master\1.2\Assemblies\RJW.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
