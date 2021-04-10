@@ -11,6 +11,7 @@ namespace RimNudeWorld
     {
 
         public static Dictionary<string, Graphic> LewdGraphics = new Dictionary<string, Graphic>();
+        
 
     }
 }

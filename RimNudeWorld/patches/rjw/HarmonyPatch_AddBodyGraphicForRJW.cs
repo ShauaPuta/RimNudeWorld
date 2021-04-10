@@ -25,6 +25,9 @@ namespace RimNudeWorld
         })]
     class HarmonyPatch_AddBodyGraphicForRJW
     {
+
+        public static Dictionary<Pawn, float> timeSinceSex = new Dictionary<Pawn, float>();
+
         public static void Postfix(PawnRenderer __instance, Pawn ___pawn, Vector3 rootLoc, float angle, bool renderBody, Rot4 bodyFacing, Rot4 headFacing, RotDrawMode bodyDrawType, bool portrait, bool headStump, bool invisible)
         {
             Pawn p = ___pawn;
@@ -38,7 +41,8 @@ namespace RimNudeWorld
 
             if (ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null)
             {
-                if (p?.jobs?.curDriver != null && p.jobs.curDriver is JobDriver_Sex)
+                if (p?.jobs?.curDriver != null && p.jobs.curDriver is JobDriver_Sex ||
+                    (timeSinceSex.ContainsKey(p)))
                 {
                     GraphicData originalGraphicData = p.ageTracker.CurKindLifeStage.bodyGraphicData;
                     Graphic lewdGraphic = CachedGraphics.LewdGraphics.TryGetValue(modifiedPath);
@@ -49,6 +53,27 @@ namespace RimNudeWorld
                         rootLoc.y = (AltitudeLayer.LayingPawn - 1).AltitudeFor();
                         GenDraw.DrawMeshNowOrLater(lewdMesh, rootLoc, Quaternion.AngleAxis(angle, Vector3.up), lewdGraphic.MatAt(bodyFacing), portrait);
                     }
+                }
+
+                if(p?.jobs?.curDriver != null && p.jobs.curDriver is JobDriver_Sex)
+                {
+                    if(p.jobs.curDriver.ticksLeftThisToil <= 30f)
+                    {
+                        if(timeSinceSex.ContainsKey(p))
+                        {
+                            timeSinceSex[p] = GenTicks.TicksGame - Rand.Range(0, 180);
+                        }
+                        else
+                        {
+                            timeSinceSex.Add(p, GenTicks.TicksGame);
+                        }
+                        
+
+                    }
+                }
+                else if(timeSinceSex.ContainsKey(p) && timeSinceSex[p] + 1000 < GenTicks.TicksGame) //time delay to disappearing texture on job end
+                {
+                    timeSinceSex.Remove(p);
                 }
             }
         }
