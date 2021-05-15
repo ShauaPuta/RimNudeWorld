@@ -15,3 +15,7 @@ D:\Games\Steam\steamapps\common\RimWorld\Mods\RimNudeWorld 2.0\Source\RimNudeWor
 D:\Games\Steam\steamapps\common\RimWorld\Mods\RimNudeWorld 2.0\Source\RimNudeWorld\RimNudeWorld\obj\Debug\RimNudeWorld.csproj.CoreCompileInputs.cache
 D:\Games\Steam\steamapps\common\RimWorld\Mods\RimNudeWorld 2.0\Source\RimNudeWorld\RimNudeWorld\obj\Debug\RimNudeWorld.csproj.CopyComplete
 D:\Games\Steam\steamapps\common\RimWorld\Mods\RimNudeWorld 2.0\Source\RimNudeWorld\RimNudeWorld\obj\Debug\RimNudeWorld.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\RNW 2.1\Assemblies\RimNudeWorld.dll
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\RNW 2.1\Source\RimNudeWorld\RimNudeWorld\obj\Debug\RimNudeWorld.csprojAssemblyReference.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\RNW 2.1\Source\RimNudeWorld\RimNudeWorld\obj\Debug\RimNudeWorld.csproj.CoreCompileInputs.cache
+D:\SteamLibrary\steamapps\common\RimWorld\Mods\RNW 2.1\Source\RimNudeWorld\RimNudeWorld\obj\Debug\RimNudeWorld.dll
