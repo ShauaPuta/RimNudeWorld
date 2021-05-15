@@ -27,7 +27,7 @@ namespace RimNudeWorld
 
 
     [HarmonyPatch(typeof(AlienPartGenerator.BodyAddon), "GetPath")]
-    public class GenitalPatch {
+    public static class GenitalPatch {
 
         public static readonly char[] NUMBERS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
@@ -68,8 +68,8 @@ namespace RimNudeWorld
                 }
                 else if (originalPath.Length >= 9 && originalPath.Contains("penis")) {
 
-                    string modifiedPath = originalPath.Insert(9, "Flaccid/") + "_flaccid";
-                    string modifiedPathNoNumber = originalPath.TrimEnd(NUMBERS).Length >= 9 ? originalPath.TrimEnd(NUMBERS).Insert(9, "Flaccid/") + "_flaccid" : "";
+                    string modifiedPath = originalPath.Insert(9, "Flaccid/");
+                    string modifiedPathNoNumber = originalPath.TrimEnd(NUMBERS).Length >= 9 ? originalPath.TrimEnd(NUMBERS).Insert(9, "Flaccid/") : "";
 
                     if (pawn.RaceHasSexNeed()) {
 
@@ -94,9 +94,7 @@ namespace RimNudeWorld
 
                                 if (NudeSettings.debugMode) {
                                     Log.Message("Could not find " + modifiedPath + " or " + modifiedPathNoNumber + " (with end numbers trimmed)");
-                                    ContentFinder<Texture2D>.Get(modifiedPathNoNumber + "_north", true);
                                 }
-                                    
 
                             }   
 
