@@ -70,7 +70,7 @@ namespace RimNudeWorld
 
                     string modifiedPath = originalPath.Insert(9, "Flaccid/");
                     string modifiedPathNoNumber = originalPath.TrimEnd(NUMBERS).Length >= 9 ? originalPath.TrimEnd(NUMBERS).Insert(9, "Flaccid/") : "";
-
+                    
                     if (pawn.RaceHasSexNeed()) {
 
                         if (xxx.need_sex(pawn) > xxx.SexNeed.Frustrated && !(pawn.jobs.curDriver is JobDriver_Sex)) {

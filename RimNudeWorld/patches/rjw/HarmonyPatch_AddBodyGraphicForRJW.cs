@@ -50,7 +50,9 @@ namespace RimNudeWorld
                     if(lewdGraphic != null)
                     {
                         Mesh lewdMesh = lewdGraphic.MeshAt(bodyFacing);
-                        rootLoc.y = (AltitudeLayer.LayingPawn - 1).AltitudeFor();
+
+
+                        rootLoc.y = (bodyFacing == Rot4.South ? AltitudeLayer.LayingPawn + 1 : AltitudeLayer.LayingPawn - 1).AltitudeFor();
                         GenDraw.DrawMeshNowOrLater(lewdMesh, rootLoc, Quaternion.AngleAxis(angle, Vector3.up), lewdGraphic.MatAt(bodyFacing), portrait);
                     }
                 }
