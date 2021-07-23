@@ -13,6 +13,7 @@ using rjw;
 
 namespace RimNudeWorld
 {
+	/*
 	[HarmonyPatch(typeof(AlienRace.HarmonyPatches), "DrawAddons")]
 	[HarmonyPriority(399)]
 	public static class HarmonyPatch_AlienRace
@@ -114,4 +115,5 @@ namespace RimNudeWorld
 			return false;
 		}
 	}
+	*/
 }

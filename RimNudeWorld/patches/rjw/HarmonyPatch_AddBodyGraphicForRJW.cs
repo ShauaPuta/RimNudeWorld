@@ -17,18 +17,15 @@ namespace RimNudeWorld
             typeof(float),
             typeof(bool),
             typeof(Rot4),
-            typeof(Rot4),
             typeof(RotDrawMode),
-            typeof(bool),
-            typeof(bool),
-            typeof(bool)
+            typeof(PawnRenderFlags)
         })]
     class HarmonyPatch_AddBodyGraphicForRJW
     {
 
         public static Dictionary<Pawn, float> timeSinceSex = new Dictionary<Pawn, float>();
 
-        public static void Postfix(PawnRenderer __instance, Pawn ___pawn, Vector3 rootLoc, float angle, bool renderBody, Rot4 bodyFacing, Rot4 headFacing, RotDrawMode bodyDrawType, bool portrait, bool headStump, bool invisible)
+        public static void Postfix(PawnRenderer __instance, Pawn ___pawn, Vector3 rootLoc, float angle, bool renderBody, Rot4 bodyFacing, RotDrawMode bodyDrawType, PawnRenderFlags flags)
         {
             Pawn p = ___pawn;
             if (!Genital_Helper.has_penis_fertile(p) && !Genital_Helper.has_penis_infertile(p) && !Genital_Helper.has_multipenis(p))
@@ -53,7 +50,7 @@ namespace RimNudeWorld
 
 
                         rootLoc.y = (bodyFacing == Rot4.South ? AltitudeLayer.PawnUnused + 1 : AltitudeLayer.LayingPawn - 1).AltitudeFor();
-                        GenDraw.DrawMeshNowOrLater(lewdMesh, rootLoc, Quaternion.AngleAxis(angle, Vector3.up), lewdGraphic.MatAt(bodyFacing), portrait);
+                        GenDraw.DrawMeshNowOrLater(lewdMesh, rootLoc, Quaternion.AngleAxis(angle, Vector3.up), lewdGraphic.MatAt(bodyFacing), flags.FlagSet(PawnRenderFlags.DrawNow));
                     }
                 }
 
