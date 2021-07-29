@@ -33,91 +33,119 @@ namespace RimNudeWorld
 
         public static void Postfix(Pawn pawn, ref Graphic __result) {
 
-            if(pawn == null) {
-                if (NudeSettings.debugMode) {
-                    Log.Message("Pawn is null; patch stopped");
-                }
-            }
-            else if(__result?.path == null) {
+            try
+            {
 
-                if (NudeSettings.debugMode) {
-                    Log.Message("Original graphic that's trying to be replaced doesn't exist!");
-                }
-            }
-            else {
-
-                string originalPath = __result.path;
-
-                if (pawn.Dead) {
-
-                    if (NudeSettings.debugMode) {
-                        Log.Message("Attempting to remove corpse genitals...");
+                if (pawn == null)
+                {
+                    if (NudeSettings.debugMode)
+                    {
+                        Log.Message("Pawn is null; patch stopped");
                     }
+                }
+                else if (__result?.path == null)
+                {
 
-                    if (pawn.Corpse != null && pawn.Corpse.CurRotDrawMode == RotDrawMode.Dessicated && ((originalPath.Length > 8 && originalPath.Contains("Genitals")) || (originalPath.Length > 7 && originalPath.Contains("Breasts")))) {
-                        __result = GraphicDatabase.Get<Graphic_Multi>("Genitals/FeaturelessCrotch", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                    if (NudeSettings.debugMode)
+                    {
+                        Log.Message("Original graphic that's trying to be replaced doesn't exist!");
                     }
-                    return;
-
                 }
-                else if (NudeSettings.pubicHair && originalPath.Length >= 5 && originalPath.Contains("Pubes")) {
+                else
+                {
 
-                    __result = GraphicDatabase.Get<Graphic_Multi>("Genitals/Pubes/Shaved", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
-                    return;
+                    string originalPath = __result.path;
 
-                }
-                else if (originalPath.Length >= 9 && originalPath.Contains("penis")) {
+                    if (pawn.Dead)
+                    {
 
-                    string modifiedPath = originalPath.Insert(9, "Flaccid/");
-                    string modifiedPathNoNumber = originalPath.TrimEnd(NUMBERS).Length >= 9 ? originalPath.TrimEnd(NUMBERS).Insert(9, "Flaccid/") : "";
-                    
-                    if (pawn.RaceHasSexNeed()) {
+                        if (NudeSettings.debugMode)
+                        {
+                            Log.Message("Attempting to remove corpse genitals...");
+                        }
 
-                        if (xxx.need_sex(pawn) > xxx.SexNeed.Frustrated && !(pawn.jobs.curDriver is JobDriver_Sex)) {
+                        if (pawn.Corpse != null && pawn.Corpse.CurRotDrawMode == RotDrawMode.Dessicated && ((originalPath.Length > 8 && originalPath.Contains("Genitals")) || (originalPath.Length > 7 && originalPath.Contains("Breasts"))))
+                        {
+                            __result = GraphicDatabase.Get<Graphic_Multi>("Genitals/FeaturelessCrotch", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                        }
+                        return;
 
-                            if(ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null) {
-                                 
-                                __result = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
-                                if (NudeSettings.debugMode)
-                                    Log.Message("Modifying path " + originalPath + " with " + modifiedPath);
-                                return;
-                            }
-                            else if(modifiedPathNoNumber != "" && ContentFinder<Texture2D>.Get(modifiedPathNoNumber + "_north", false) != null) {
+                    }
+                    else if (NudeSettings.pubicHair && originalPath.Length >= 5 && originalPath.Contains("Pubes"))
+                    {
 
-                                __result = GraphicDatabase.Get<Graphic_Multi>(modifiedPathNoNumber, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
-                                if (NudeSettings.debugMode)
-                                    Log.Message("Modifying path " + originalPath + " with " + modifiedPathNoNumber + " (with end numbers trimmed)");
-                                return;
+                        __result = GraphicDatabase.Get<Graphic_Multi>("Genitals/Pubes/Shaved", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                        return;
 
-                            }
-                            else {
+                    }
+                    else if (originalPath.Length >= 9 && originalPath.Contains("penis"))
+                    {
 
-                                if (NudeSettings.debugMode) {
-                                    Log.Message("Could not find " + modifiedPath + " or " + modifiedPathNoNumber + " (with end numbers trimmed)");
+                        string modifiedPath = originalPath.Insert(9, "Flaccid/");
+                        string modifiedPathNoNumber = originalPath.TrimEnd(NUMBERS).Length >= 9 ? originalPath.TrimEnd(NUMBERS).Insert(9, "Flaccid/") : "";
+
+                        if (pawn.RaceHasSexNeed())
+                        {
+
+                            if (xxx.need_sex(pawn) > xxx.SexNeed.Frustrated && pawn?.jobs?.curDriver != null && !(pawn.jobs.curDriver is JobDriver_Sex))
+                            {
+
+                                if (ContentFinder<Texture2D>.Get(modifiedPath + "_north", false) != null)
+                                {
+
+                                    __result = GraphicDatabase.Get<Graphic_Multi>(modifiedPath, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                                    if (NudeSettings.debugMode)
+                                        Log.Message("Modifying path " + originalPath + " with " + modifiedPath);
+                                    return;
+                                }
+                                else if (modifiedPathNoNumber != "" && ContentFinder<Texture2D>.Get(modifiedPathNoNumber + "_north", false) != null)
+                                {
+
+                                    __result = GraphicDatabase.Get<Graphic_Multi>(modifiedPathNoNumber, __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                                    if (NudeSettings.debugMode)
+                                        Log.Message("Modifying path " + originalPath + " with " + modifiedPathNoNumber + " (with end numbers trimmed)");
+                                    return;
+
+                                }
+                                else
+                                {
+
+                                    if (NudeSettings.debugMode)
+                                    {
+                                        Log.Message("Could not find " + modifiedPath + " or " + modifiedPathNoNumber + " (with end numbers trimmed)");
+                                    }
+
                                 }
 
-                            }   
 
-                            
+                            }
+                            else
+                            {
+                                if (NudeSettings.debugMode)
+                                    Log.Message("Pawn is either: horny or has jobdriver sex");
+                            }
+
                         }
-                        else {
+                        else
+                        {
                             if (NudeSettings.debugMode)
-                                Log.Message("Pawn is either: horny or has jobdriver sex");
+                                Log.Message("Pawn race does not have sexneed");
                         }
 
+
                     }
-                    else {
+                    else
+                    {
                         if (NudeSettings.debugMode)
-                            Log.Message("Pawn race does not have sexneed");
+                            Log.Message(originalPath + " does not contain string \"penis\" or is shorter than a length of 9");
                     }
 
-
                 }
-                else {
-                    if (NudeSettings.debugMode)
-                        Log.Message(originalPath + " does not contain string \"penis\" or is shorter than a length of 9");
-                }
+            }
 
+            catch (NullReferenceException e)
+            {
+                Log.Message(e.Message + " " + e.Source);
             }
 
         }
