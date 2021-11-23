@@ -1,0 +1,59 @@
+Vanilla
+
+Flak vest - all but belly Apparel_FlakVest
+duster - g Apparel_Duster
+
+Royalty
+Ludeon.RimWorld.Royalty
+Cape - r Apparel_Cape
+corset - rl Apparel_Corset
+
+Ideology
+Ludeon.RimWorld.Ideology
+slave geart thing - all
+
+
+<name>Vanilla Factions Expanded - Vikings</name>
+<packageId>OskarPotocki.VFE.Vikings</packageId>
+
+jarl coat - g VFEV_Apparel_JarlCape
+noble coat - g VFEV_Apparel_RoyalFurCoat
+
+
+
+
+
+<ModMetaData>
+  <name>Vanilla Factions Expanded - Medieval</name>
+  <packageId>OskarPotocki.VanillaFactionsExpanded.MedievalModule</packageId>
+
+Mediveal
+kings rope - g VFEM_Apparel_KingsRobes
+
+
+
+<name>Vanilla Apparel Expanded — Accessories</name>
+<packageId>VanillaExpanded.VAEAccessories</packageId>
+
+VAEA_Apparel_Backpack
+VAEA_Apparel_BattleBanner
+VAEA_Apparel_Quiver
+VAEA_Apparel_MiniTurretPack
+
+<ModMetaData>
+<name>Vanilla Apparel Expanded</name>
+<packageId>VanillaExpanded.VAPPE</packageId>
+
+overall - r l VAE_Apparel_Overalls
+apron - r l VAE_Apparel_Apron
+lab coat - g VAE_Apparel_LabCoat
+
+
+
+<name>Vanilla Armour Expanded</name>
+	<author>Oskar Potocki, Trunken, Sarg Bjornson</author>
+	<packageId>VanillaExpanded.VARME</packageId>
+
+bp vest - all but belly VAE_Apparel_BulletproofVest
+advanced vest - all but belly  VAE_Apparel_AdvancedVest
+wooden armor - all but belly VAE_Apparel_WoodenArmor

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<loadFolders>
+  <v1.1>
+	<li>Extra Patches/Debug Patch</li><!--Silences Rimnude body addons from logs-->
+	<li>Extra Patches/1.1 Colored Nudes</li><!--Colored genitals and breasts meant for 1.1 HAR-->
+	<li>/</li><!--General rimnude patches and textures-->
+    <li>1.1 and 1.2 Assembly</li><!--C# compiled for 1.1-->
+  </v1.1>
+  <v1.2>
+	<li>Extra Patches/Debug Patch</li><!--Silences Rimnude body addons from logs-->
+	<li>Extra Patches/1.2 and 1.3 Colored Nudes</li><!--Colored genitals and breasts meant for 1.2+ HAR-->
+	<li>/</li><!--General rimnude patches and textures-->
+    <li>1.1 and 1.2 Assembly</li><!--C# compiled for 1.2-->
+  </v1.2>
+  <v1.3>
+	<li>Extra Patches/1.3 Offset Patch</li><!--Fixes all offsets to work same way in 1.3 as did in 1.1 and 1.2-->
+	<li>Extra Patches/Revealing Apparel</li>
+	<li>Extra Patches/Debug Patch</li><!--Silences Rimnude body addons from logs-->
+	<li>Extra Patches/1.2 and 1.3 Colored Nudes</li><!--Colored genitals and breasts meant for 1.2+ HAR-->
+	<li>/</li><!--General rimnude patches and textures-->
+	<li>1.3 Assembly</li><!--C# compiled for 1.3-->
+  </v1.3>
+</loadFolders>

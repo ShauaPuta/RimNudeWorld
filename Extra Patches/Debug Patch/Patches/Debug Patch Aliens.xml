@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationConditional"><!--looks for a race that is using a rimnude addon-->
+		<xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[path="Genitals/FeaturelessCrotch"]</xpath>
+		<match Class="PatchOperationSequence"><!--found at least one race that is using rimnude addons-->
+			<operations>
+				<li Class="PatchOperationInsert"><!--Addons no longer show in debug log-->
+					<xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[
+					hediffGraphics/Penis or
+					hediffGraphics/Vagina or
+					hediffGraphics/CatVagina or
+					hediffGraphics/Breasts or
+					hediffGraphics/RJW_pregnancy]/layerOffset</xpath>						
+					<value>
+						<debug>false</debug>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

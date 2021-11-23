@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+	  <operations>
+		<li Class="PatchOperationReplace"><!--fixes all x,y offsets and removes outdated layerOffset-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[
+			hediffGraphics/Penis or
+			hediffGraphics/Vagina or
+			hediffGraphics/CatVagina or
+			hediffGraphics/Breasts or
+			hediffGraphics/RJW_pregnancy]/layerOffset</xpath>						
+			<value>
+				<defaultOffset>Tail</defaultOffset>
+			</value>
+		</li>
+		<!--<li Class="PatchOperationRemove">removes outdated layeroffset node
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li/layerOffset</xpath>
+		</li>-->
+		<!--==================Z Layer offsets==================-->
+		<!--penises-->
+		<li Class="PatchOperationAdd"><!--south-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Penis][path="Genitals/FeaturelessCrotch"]/offsets/south</xpath>	
+			<value>
+				<layerOffset>-0.2763</layerOffset>
+			</value>
+		</li>
+		<li Class="PatchOperationAdd"><!--north-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Penis][path="Genitals/FeaturelessCrotch"]/offsets/north</xpath>	
+			<value>
+				<layerOffset>-0.291</layerOffset>
+			</value>
+		</li>
+		<li Class="PatchOperationAdd"><!--east-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Penis][path="Genitals/FeaturelessCrotch"]/offsets/east</xpath>	
+			<value>
+				<layerOffset>-0.2763</layerOffset>
+			</value>
+		</li>
+		<!--vaginas-->
+		<li Class="PatchOperationAdd"><!--south-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Vagina]/offsets/south</xpath>	
+			<value>
+				<layerOffset>-0.289</layerOffset>
+			</value>
+		</li>
+		<li Class="PatchOperationAdd"><!--north-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Vagina]/offsets/north</xpath>	
+			<value>
+				<layerOffset>-0.289</layerOffset>
+			</value>
+		</li>
+		<li Class="PatchOperationAdd"><!--east-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Vagina]/offsets/east</xpath>	
+			<value>
+				<layerOffset>-0.289</layerOffset>
+			</value>
+		</li>
+		<!--pubes-->
+		<li Class="PatchOperationAdd"><!--south-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/CatVagina]/offsets/south</xpath>
+			<value>
+				<layerOffset>-0.288</layerOffset>
+			</value>			
+		</li>
+		<li Class="PatchOperationAdd"><!--north-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/CatVagina]/offsets/north</xpath>
+			<value>
+				<layerOffset>-0.291</layerOffset>
+			</value>			
+		</li>
+		<li Class="PatchOperationAdd"><!--east-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/CatVagina]/offsets/east</xpath>
+			<value>
+				<layerOffset>-0.288</layerOffset>
+			</value>			
+		</li>
+		<!--breasts-->
+		<li Class="PatchOperationAdd"><!--south-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Breasts]/offsets/south</xpath>
+			<value>
+				<layerOffset>-0.2765</layerOffset>
+			</value>
+		</li>
+		<li Class="PatchOperationAdd"><!--north-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Breasts]/offsets/north</xpath>
+			<value>
+				<layerOffset>-0.291</layerOffset>
+			</value>
+		</li>
+		<li Class="PatchOperationAdd"><!--east-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Breasts]/offsets/east</xpath>
+			<value>
+				<layerOffset>-0.2765</layerOffset>
+			</value>
+		</li>
+		<!--balls-->
+		<li Class="PatchOperationAdd"><!--south-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[path="Genitals/Testicles/FeaturelessTesticles"]/offsets/south</xpath>
+			<value>
+				<layerOffset>-0.2764</layerOffset>
+			</value>
+		</li>
+		<li Class="PatchOperationAdd"><!--north-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[path="Genitals/Testicles/FeaturelessTesticles"]/offsets/north</xpath>
+			<value>
+				<layerOffset>-0.291</layerOffset>
+			</value>
+		</li>
+		<li Class="PatchOperationAdd"><!--east-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[path="Genitals/Testicles/FeaturelessTesticles"]/offsets/east</xpath>
+			<value>
+				<layerOffset>-0.2764</layerOffset>
+			</value>
+		</li>
+		<!--bellies-->
+		<li Class="PatchOperationAdd"><!--south-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/RJW_pregnancy]/offsets/south</xpath>
+			<value>
+				<layerOffset>-0.28</layerOffset>
+			</value>
+		</li>
+		<li Class="PatchOperationAdd"><!--north-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/RJW_pregnancy]/offsets/north</xpath>
+			<value>
+				<layerOffset>-0.291</layerOffset>
+			</value>
+		</li>
+		<li Class="PatchOperationAdd"><!--east-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/RJW_pregnancy]/offsets/east</xpath>
+			<value>
+				<layerOffset>-0.28</layerOffset>
+			</value>
+		</li>
+	  </operations>
+	</Operation>
+</Patch>

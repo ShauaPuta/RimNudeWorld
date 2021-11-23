@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationConditional"><!--looks for a race that is using a rimnude addon-->
+		<xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[path="Genitals/FeaturelessCrotch"]</xpath>
+		<match Class="PatchOperationSequence"><!--found at least one race that is using rimnude addons-->
+			<operations>
+				<li Class="PatchOperationConditional"><!--checks if the races uses out of date offset node-->
+					<xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[layerOffset]</xpath>
+					<match Class="PatchOperationSequence"><!--at least one does-->
+						<operations>
+							<li Class="PatchOperationReplace"><!--Race patch was not made for 1.3. Fixes all x,y offsets and removes outdated layerOffset-->
+								<xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[
+								hediffGraphics/Penis or
+								hediffGraphics/Vagina or
+								hediffGraphics/CatVagina="Genitals/Pubes/Pubes4" or
+								hediffGraphics/Breasts or
+								hediffGraphics/RJW_pregnancy]/layerOffset</xpath>						
+								<value>
+									<defaultOffset>Tail</defaultOffset>
+								</value>
+							</li>
+							<!--<li Class="PatchOperationRemove">removes outdated layeroffset node
+							  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li/layerOffset</xpath>
+							</li>-->		
+							<!--==================Z Layer offsets==================-->
+							<!--penises-->
+							<li Class="PatchOperationAdd"><!--south-->
+							  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Penis][path="Genitals/FeaturelessCrotch"]/offsets/south</xpath>	
+								<value>
+									<layerOffset>-0.2763</layerOffset>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd"><!--north-->
+							  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Penis][path="Genitals/FeaturelessCrotch"]/offsets/north</xpath>	
+								<value>
+									<layerOffset>-0.291</layerOffset>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd"><!--east-->
+							  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Penis][path="Genitals/FeaturelessCrotch"]/offsets/east</xpath>	
+								<value>
+									<layerOffset>-0.2763</layerOffset>
+								</value>
+							</li>
+							<!--vaginas-->
+							<li Class="PatchOperationAdd"><!--south-->
+							  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Vagina]/offsets/south</xpath>	
+								<value>
+									<layerOffset>-0.289</layerOffset>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd"><!--north-->
+							  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Vagina]/offsets/north</xpath>	
+								<value>
+									<layerOffset>-0.289</layerOffset>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd"><!--east-->
+							  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Vagina]/offsets/east</xpath>	
+								<value>
+									<layerOffset>-0.289</layerOffset>
+								</value>
+							</li>
+							<!--pubes-->
+							<li Class="PatchOperationConditional"><!--checks if the races uses pubes addon-->
+								<xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/CatVagina="Genitals/Pubes/Pubes4"]</xpath>
+								<match Class="PatchOperationSequence"><!--at least one does-->
+									<operations>
+										<li Class="PatchOperationAdd"><!--south-->
+										  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/CatVagina="Genitals/Pubes/Pubes4"]/offsets/south</xpath>
+											<value>
+												<layerOffset>-0.288</layerOffset>
+											</value>			
+										</li>
+										<li Class="PatchOperationAdd"><!--north-->
+										  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/CatVagina="Genitals/Pubes/Pubes4"]/offsets/north</xpath>
+											<value>
+												<layerOffset>-0.291</layerOffset>
+											</value>			
+										</li>
+										<li Class="PatchOperationAdd"><!--east-->
+										  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/CatVagina="Genitals/Pubes/Pubes4"]/offsets/east</xpath>
+											<value>
+												<layerOffset>-0.288</layerOffset>
+											</value>			
+										</li>
+									</operations>
+								</match>
+							</li>
+							<!--breasts-->
+							<li Class="PatchOperationAdd"><!--south-->
+							  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Breasts]/offsets/south</xpath>
+								<value>
+									<layerOffset>-0.2765</layerOffset>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd"><!--north-->
+							  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Breasts]/offsets/north</xpath>
+								<value>
+									<layerOffset>-0.291</layerOffset>
+								</value>
+							</li>
+							<li Class="PatchOperationAdd"><!--east-->
+							  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/Breasts]/offsets/east</xpath>
+								<value>
+									<layerOffset>-0.2765</layerOffset>
+								</value>
+							</li>
+							<!--balls-->
+							<li Class="PatchOperationConditional"><!--checks if the races uses balls addon-->
+								<xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[path="Genitals/Testicles/FeaturelessTesticles"]</xpath>
+								<match Class="PatchOperationSequence"><!--at least one does-->
+									<operations>
+										<li Class="PatchOperationAdd"><!--south-->
+										  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[path="Genitals/Testicles/FeaturelessTesticles"]/offsets/south</xpath>
+											<value>
+												<layerOffset>-0.2764</layerOffset>
+											</value>
+										</li>
+										<li Class="PatchOperationAdd"><!--north-->
+										  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[path="Genitals/Testicles/FeaturelessTesticles"]/offsets/north</xpath>
+											<value>
+												<layerOffset>-0.291</layerOffset>
+											</value>
+										</li>
+										<li Class="PatchOperationAdd"><!--east-->
+										  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[path="Genitals/Testicles/FeaturelessTesticles"]/offsets/east</xpath>
+											<value>
+												<layerOffset>-0.2764</layerOffset>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+							<!--bellies-->
+							<li Class="PatchOperationConditional"><!--checks if the races uses bellies addon-->
+								<xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/RJW_pregnancy]</xpath>
+								<match Class="PatchOperationSequence"><!--at least one does-->
+									<operations>
+										<li Class="PatchOperationAdd"><!--south-->
+										  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/RJW_pregnancy]/offsets/south</xpath>
+											<value>
+												<layerOffset>-0.28</layerOffset>
+											</value>
+										</li>
+										<li Class="PatchOperationAdd"><!--north-->
+										  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/RJW_pregnancy]/offsets/north</xpath>
+											<value>
+												<layerOffset>-0.291</layerOffset>
+											</value>
+										</li>
+										<li Class="PatchOperationAdd"><!--east-->
+										  <xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[hediffGraphics/RJW_pregnancy]/offsets/east</xpath>
+											<value>
+												<layerOffset>-0.28</layerOffset>
+											</value>
+										</li>
+									</operations>
+								</match>
+							</li>
+						</operations>
+					</match>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

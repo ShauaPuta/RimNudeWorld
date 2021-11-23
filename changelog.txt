@@ -1,0 +1,178 @@
+ver 2.2.11 Unofficial by Tory
+- Moved Revealing Apparel to only load for 1.3 users
+- Patches added
+	Kijin (Nejarrie)
+	Newman (guesswho)
+	Stupid-sexy-deathclaws (guesswho)	
+	Xenohumans_scaleman (guesswho)
+	Xenohumans_wolfman (guesswho)
+	Oni (Grimlyssa)
+	DemonsandAngels (WolfoftheWest)
+- Patches Updated
+	Leeani
+	Half Dragon
+	Moyo (Hawkeye32)
+	Nihal (DianaWinters)
+	Apini (DianaWinters)
+	Ratkin (Hawkeye32)
+- Added MayRequire attribute to all race support specific body parts in all current rimnude patches
+
+ver 2.2.10 Unofficial by Banana Banana
+- Adjusted offset-patch for Humans/Aliens to display vaginas facing north
+- Adjusted "female" Human left-breast offset to match the right-breast offset, so both stick out the same distance from the body. (See the top row in the image below, that was taken prefix)
+- Adjusted the same for the FR race patches (Other race patches might need that, too.)
+- Orassan and Astoriel race patches added by Ikswotok
+- New feature: Revealing Apparel
+
+ver 2.2.8.1 (aka 2.2.9) Unofficial by Ikswotok
+-Adjusted south Offsets for:
+    -Human featurelesscrotch(vagina) female/thin/hulk/fat
+    -Human featurelessleft/right(breasts) thin
+    -Astoriel featurelesscrotch(vagina) female
+    -OrassanHybrid featurelesscrotch(vagina) female
+    -OrassanHybrid featurelesscrotch(penis/vagina) thin
+    -OrassanHybrid featurelesscrotch(penis) Male
+    -Orassan featurelesscrotch(vagina) female/thin
+    -Orassan featurelesscrotch(penis) male/thin
+    -Orassan featurelesscrotch(testicles) male/thin
+-Added Atoriel Legacy to Atoriel nudepatch
+
+ver 2.2.8 Unofficial by Tory
+-Fixed south belly texture and offsets for fat body
+-Added comments to LoadFolders.xml
+-Updated Patches
+	-Humans
+	-Rabbies
+	-Llisceans
+	-Forgotten Realms
+-Added Patches
+	-Archotech Race (Thanks Gazz)
+	-Half Dragons (Thanks Hawkeye32)
+	-Poleepkwa Race
+-Improved the mega 1.3 offset patches
+-Disabled pointless Revia patch, they inherit humans' body addons
+-C0ffee updated .dll (fixed some errors related to removed pawns etc.)
+
+ver 2.2.7 Unofficial by Tory
+-Fixed a duplicate xml error caused by specific combinations of active rimnude patches
+-Rearranged file structure and LoadFolders
+
+ver 2.2.6 Unofficial by Tory
+-Silenced rimnude log addons for alien races
+
+ver 2.2.5 Unofficial by Tory
+-Fixed LoadFolders for Mac users
+
+ver 2.2.4 Unofficial by Tory
+-Should check for an alien race before running alien offset patch
+	-added conditional checks
+	-If a race is active and using a rimnude addon
+	-If a race is using pubes, balls, and bellies
+
+ver 2.2.3 Unofficial by Tory
+-c0ffee added Animal Addon support in Rimnude .dll file
+-Updated the mega offset patch to work for alien races
+-Added some comments and various changes to my new patches
+
+ver 2.2.2 Unofficial by Tory
+-Adjusted rendering order for Human's body addons (breasts should draw ontop of bellies now)
+
+ver 2.2.1 Unofficial by Tory
+-Recompiled .dll for 1.3
+
+ver 2.2 Unofficial by Tory
+-Added 1.3 tag in about.xml
+-1.3 offsets fixed via patch
+-Silenced all Rimnude HAR body addon logs
+
+ver 2.1
+-fixed the layering issue so vaginas are displayed in front of the pawns now
+-tweaked a lot the penis placement so genital rotation from animation framework can work a bit better
+-added textures for demon tentacles (Thanks merroki!), generic penis, slime tentacle
+-made archotech boobs and clits follow the color scheme of archotech penises, so they can match now
+-Added patches for Lapelli, Fell Tribes, 
+
+ver 2.0.6
+-added 1.2 version support
+-fixed patches for orassans, sergal gnolls and lions, callistans, filthy orcs
+-fixed o21 elves patches (stuff now should align better)
+-fixed patches for kurin and rabbie (thanks usagirei!)
+-added patches for nyaron (thanks Diana)
+-added patches for Lupaios (Thanks Ziz!)
+-added patches for Morrowrim races (thanks Armorguy1!)
+-made new textures for bionic and archotech penises. bionic look like dildos, and archotech has more colors. If you dont like what the pawn have, just change the variation with character editor or similar.
+-added textures for ghost parts
+-New textures for demon penis and orc penis, and saggy orc boobs (thanks malistaticy)
+-added race support for: Moyo, Adeptus Mechanicus races (Orks, Eldar, Tau...), Ferian, Equiums, Bun, Vulpes, Apini, Nihal, Rimcraft
+
+ver 2.0.5
+features:
+-Flaccid penis when not horny and sexing, and check for skeletons with boners (thanks c0ffee!); ps: erect penis takes a while to go flaccid again
+-Changed penises graphic positioning for better integration with RJW animations addon
+-Added mod options to turn on-off pubes
+-Added OTYOTY's code for bodytype based addon, to be used in the future
+-Added OTYOTY's idea for back vagina and back sack
+-HD bodies! credits to ryflamer for letting me base mine off his HD pawn textures. Most alien races now have HD bodies
+things:
+-updated severity of parts to match new RJW size severity 
+-fixed ghoul females with butt on the front (lol sori)
+-fixed gor bull penises being too small for their size
+-made radioctive ghoul parts have radioactive green bits (ghouls only tho)
+-remade canine vagina, now with extra puffyness (the old one was horrible)
+-remade horse penis, cause old one was also horrible
+-remade insect penis and added ovipositor, hopefully it looks good
+-added textures for: alien tentacle penis, corkscrew penis, ovipositor penis, rock penis and Udders (80% done)
+-added race support for Astoriel, Beta-Humanoids, crystalloid's Valkyries, Daemonette's Slaanesh Cultists and princes, Kurins HAR version, Dragonians RJW version (Heavilly WIP. delete the file if you dont like it), Thrumkin, Skaven,
+	Arachnes (kinda), Leeani, Ferrex, Racc, Vulpine Races, Logann, Zhthi'hl, Protogen
+
+ver 2.0.1
+-fixed offsets of pubes in front of penises
+-fixed offsets on dryad boobs features
+-fixed hemipenis not working and missing textures for huge hemipenis
+-added multi color support for orassan parts
+-added race compatibility for Daemonettes, Revia, Fallout Ghouls, Argonians and every Outpost 21 Forgotten realms races (most untested)
+
+ver 2.0.0
+-updated to 1.1! new stuff is coming, but for now this is only a test version!
+-new system to detect stage of the hediff (thanks c0ffee for first try and erdelf for implementing the feature!)
+-all parts now have sizes
+-most textures where redrawn with twice the resolution (some alien races still have the old ones, and some textures may not look as good as others, I was really tired of doing them T3T)
+-added support for Argonians, Gor
+
+ver 1.3.7
+-added support for Filthy Orc Invasion, Creatures of Ki, Lighter Than Fast
+
+ver 1.3.6
+-fixed pubic hair offset
+-temporary fix for the BnC issue of backboobs
+-added race Compatibility for Drows, Ratkin, naga
+-added race compatibility for LOTR hobbits and elves (thanks leugimimi!)
+-added color masks for hydraulic boobs
+-added textures for extra genitals added by race support (elf, dino and orc stuff) and the vanilla hydraulic vagina
+
+
+ver 1.3.5
+-fixed cutout masks for hydraulic and orassan penis
+-fixed Beastman Tribes's raccoonman patch and orassans penis texture path
+-added race compatiblity for Callistans, Androids, Synthos, Crystalloids, Warhammerish Dryads, 
+ Forsakens, Sergals Gnolls and Lions, Avali, Kilhns and Antinium
+-added procionid penis
+-Added compatibility with Facial Stuff (yay), but read notes tho. It's important .3.
+
+ver 1.3.1
+-bugfix of a issue I incuded in the earlier one, sorri >3>
+
+ver.1.3
+-changed sligtly the texture of penises
+-added bionic penis and breasts
+-added insect genitals
+-added color masks for some parts
+-added test for pubic hair
+-removed test pubic hair from androids and orassan
+-removed test pubic hair whatsoever. did not work
+-fixed bionic breasts showing two left breasts
+-fixed path for udders, they should appear now
+-fixed major bug concerning alien races, that made alien races that have extra parts, only show 
+ boobs and genitals, not their ears/tails whatsoever
+
+

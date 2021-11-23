@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+	  <operations>
+		<li Class="PatchOperationInsert"><!--Addons no longer show in debug log-->
+		  <xpath>Defs/ThingDef/alienRace/generalSettings/alienPartGenerator/bodyAddons/li[
+			hediffGraphics/Penis or
+			hediffGraphics/Vagina or
+			hediffGraphics/CatVagina or
+			hediffGraphics/Breasts or
+			hediffGraphics/RJW_pregnancy]/layerOffset</xpath>						
+			<value>
+				<debug>false</debug>
+			</value>
+		</li>
+	  </operations>
+	</Operation>
+</Patch>
