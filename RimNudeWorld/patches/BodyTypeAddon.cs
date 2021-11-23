@@ -45,7 +45,7 @@ namespace RimNudeWorld
         {
 
 
-            public static void Postfix(Pawn pawn, ref Graphic __result)
+            public static void Postfix(Pawn pawn, ref Graphic __result, ref int sharedIndex, int? savedIndex = null)
             {
                 if (__result != null)
                 {
@@ -53,6 +53,16 @@ namespace RimNudeWorld
                         return;
                     string originalPath = __result.path;
                     bool validTexture = false;
+
+
+                    if(sharedIndex > 0)
+                    {
+                        Log.Message("RimNudeTest : " + sharedIndex);
+                        originalPath = originalPath.Substring(0, (originalPath.Length - sharedIndex.ToString().Length));
+                        Log.Message("RimNudeTest : " + originalPath);
+                    }
+
+
 
                     //Body typed texture
                     if (pawn.story.bodyType == BodyTypeDefOf.Hulk || pawn.story.bodyType == BodyTypeDefOf.Fat)
@@ -75,6 +85,15 @@ namespace RimNudeWorld
                                 validTexture = true;
                             }
                         }
+                        else if (pawn.story.bodyType == BodyTypeDefOf.Thin)
+                        {
+                            if ((ContentFinder<Texture2D>.Get(originalPath + "_Thin" + "_south", false) != null))
+                            {
+                                Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(originalPath + "_Thin", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                                __result = newGraphic;
+                                validTexture = true;
+                            }
+                        }
                         if (validTexture == false)
                         {
                             if ((ContentFinder<Texture2D>.Get(originalPath + "_Wide" + "_south", false) != null))
@@ -83,15 +102,6 @@ namespace RimNudeWorld
                                 __result = newGraphic;
                                 validTexture = true;
                             }
-                        }
-                    }
-                    else if (pawn.story.bodyType == BodyTypeDefOf.Thin)
-                    {
-                        if ((ContentFinder<Texture2D>.Get(originalPath + "_Thin" + "_south", false) != null))
-                        {
-                            Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(originalPath + "_Thin", __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
-                            __result = newGraphic;
-                            validTexture = true;
                         }
                     }
                     else if (pawn.story.bodyType == BodyTypeDefOf.Male)
@@ -123,6 +133,17 @@ namespace RimNudeWorld
                         }
                     }
 
+                    //CheckVariation
+                    if(sharedIndex > 0)
+                    {
+                        if ((ContentFinder<Texture2D>.Get(__result.path + sharedIndex.ToString() + "_south", false) != null))
+                        {
+                            Graphic newGraphic = GraphicDatabase.Get<Graphic_Multi>(__result.path + sharedIndex.ToString(), __result.Shader, __result.drawSize, __result.color, __result.colorTwo);
+                            __result = newGraphic;
+                            validTexture = true;
+                        }
+                    }
+
                     //lactation
                     if (IsLactating(pawn))
                     {
@@ -134,7 +155,7 @@ namespace RimNudeWorld
 
                         }
                     }
-                }
+                }//original result not null
 
 
             }
