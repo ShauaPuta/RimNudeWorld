@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+<Operation Class="PatchOperationSequence">
+    <success>Always</success>
+	<operations> 
+		<li Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName="Human" and @Class="AlienRace.ThingDef_AlienRace"]</xpath>
+			<success>Always</success>
+			<nomatch Class="PatchOperationAttributeSet">
+				<xpath>Defs/ThingDef[defName="Human"]</xpath>
+				<attribute>Class</attribute>
+				<value>AlienRace.ThingDef_AlienRace</value>
+			</nomatch>
+		</li>
+		<li Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName="Human"]/alienRace/generalSettings</xpath>
+			<success>Always</success>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Human"]</xpath>
+					<value>
+						<alienRace>
+							<generalSettings />
+						</alienRace>
+					</value>
+			</nomatch>
+		</li>
+		<li Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName="Human"]/alienRace/generalSettings/alienPartGenerator</xpath>
+			<success>Always</success>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Human"]/alienRace/generalSettings</xpath>
+					<value>
+					<alienPartGenerator />
+					</value>
+			</nomatch>
+		</li>	
+		<li Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName="Human"]/alienRace/generalSettings/alienPartGenerator/bodyAddons</xpath>
+			<success>Always</success>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Human"]/alienRace/generalSettings/alienPartGenerator</xpath>
+					<value>
+					<bodyAddons />
+					</value>
+			</nomatch>
+		</li>
+		<li Class="PatchOperationConditional">
+			<xpath>Defs/ThingDef[defName="Human"]/alienRace/generalSettings/alienPartGenerator/aliencrowntypes</xpath>
+			<success>Always</success>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="Human"]/alienRace/generalSettings/alienPartGenerator</xpath>
+					<value>
+						<aliencrowntypes>
+							<li>Average_Normal</li>
+							<li>Average_Pointy</li>
+							<li>Average_Wide</li>
+							<li>Narrow_Normal</li>
+							<li>Narrow_Pointy</li>
+							<li>Narrow_Wide</li>
+						</aliencrowntypes>
+					</value>
+			</nomatch>
+			</li>
+		</operations>
+</Operation>
+</Patch>
